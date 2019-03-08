@@ -3,7 +3,7 @@
 :twitter-tag: @jensschauder
 :conference-tag: #javaland
 :talk-tag: #r2dbc
-:slide-link: http://bit.ly/jsch-comm
+:slide-link: http://bit.ly/talk-r2dbc
 :linkattrs:
 
 include::footer.ad[]
