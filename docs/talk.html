@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8" /><title>Template slide</title><meta content="yes" name="apple-mobile-web-app-capable" /><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style" /><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" name="viewport" /><link href="reveal.js-3.7.0/css/reveal.css" rel="stylesheet" /><link rel="stylesheet" href="theme/schauderhaft.css" id="theme" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" /><style>/* Stylesheet for CodeRay to match GitHub theme | MIT License | http://foundation.zurb.com */
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8" /><title>Reactive access to Relational Databases</title><meta content="yes" name="apple-mobile-web-app-capable" /><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style" /><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" name="viewport" /><link href="reveal.js-3.7.0/css/reveal.css" rel="stylesheet" /><link rel="stylesheet" href="theme/schauderhaft.css" id="theme" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" /><style>/* Stylesheet for CodeRay to match GitHub theme | MIT License | http://foundation.zurb.com */
 /*pre.CodeRay {background-color:#f7f7f8;}*/
 .CodeRay .line-numbers{border-right:1px solid #d8d8d8;padding:0 0.5em 0 .25em}
 .CodeRay span.line-numbers{display:inline-block;margin-right:.5em;color:rgba(0,0,0,.3)}
@@ -90,7 +90,7 @@ table.CodeRay td.code>pre{padding:0}
 link.rel = 'stylesheet';
 link.type = 'text/css';
 link.href = window.location.search.match( /print-pdf/gi ) ? "reveal.js-3.7.0/css/print/pdf.css" : "reveal.js-3.7.0/css/print/paper.css";
-document.getElementsByTagName( 'head' )[0].appendChild( link );</script><!--[if lt IE 9]><script src="reveal.js-3.7.0/lib/js/html5shiv.js"></script><![endif]--></head><body><div class="reveal"><div class="slides"><section class="title" data-state="title"><h1>Template slide</h1><div class="preamble"><script type="text/javascript">
+document.getElementsByTagName( 'head' )[0].appendChild( link );</script><!--[if lt IE 9]><script src="reveal.js-3.7.0/lib/js/html5shiv.js"></script><![endif]--></head><body><div class="reveal"><div class="slides"><section class="title" data-state="title"><h1>Reactive access to Relational Databases</h1><div class="preamble"><script type="text/javascript">
     window.addEventListener("load", function() {
     	Reveal.configure({
           keyboard: {
@@ -112,28 +112,24 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );</script><!--[if 
 </script>
 <div id="schauderhaft-footer" class="footer">
     <span class="element">@jensschauder</span>
-    <span class="element">@jugka</span>
-    <span class="element">#communication</span>
+    <span class="element">#javaland</span>
+    <span class="element">#r2dbc</span>
 </div></div></section>
-<section id="section_title"><h2>section title</h2></section>
-<section><section data-background-image="images/no.jpg" data-background-size="contain"></section><section id="quote"><h2>Quote</h2><div class="quoteblock"><blockquote>Komm wir essen Opa</blockquote></div>
-<div class="quoteblock"><blockquote>Ok, ich hole das Beil</blockquote></div>
-<aside class="notes"><div class="paragraph"><p>This is a speaker note</p></div></aside></section></section>
-<section id="resourcen"><h2>Resourcen</h2><div class="reference"><a href="http://amzn.to/2xniDmq">7 Habits Of Highly Effective People <br> Stephen R Covey - http://amzn.to/2xniDmq</a>
-</div><div class="reference"><a href="http://amzn.to/2wzojgf">Das Corssen-Prinzip Jens Corssen - http://amzn.to/2wzojgf</a>
-</div><div class="reference"><a href="http://amzn.to/2x83XIH">An Astronaut's Guide to Life on Earth <br> Chris Hadfield - http://amzn.to/2x83XIH</a>
-</div><div class="reference"><a href="http://amzn.to/2wjgThz">Auf dem Kreuzzug ins Glück <br> Die Toten Hosen - http://amzn.to/2wjgThz</a>
-</div><div class="reference"><a href="https://www.youtube.com/watch?v=5J6jAC6XxAI">Tim Ferris http://bit.ly/timFerris</a>
-</div><div class="reference"><a href="http://amzn.to/2v0IUdI">Denken hilft zwar, nützt aber nichts <br> Dan Ariely - http://amzn.to/2v0IUdI</a>
-</div><div class="reference"><a href="http://amzn.to/2xmX31N">Thinking Fast and Slow <br> Daniel Kahneman - http://amzn.to/2xmX31N</a>
-</div></section>
-<section id="resourcen_2"><h2>Resourcen</h2><div class="reference"><a href="http://amzn.to/2x7NGn3">Just Listen Mark Goulston - http://amzn.to/2x7NGn3</a>
-</div><div class="reference"><a href="http://amzn.to/2g0assW">Difficult Conversations Douglas Stone - http://amzn.to/2g0assW</a>
-</div><div class="reference"><a href="http://inews.co.uk/opinion/comment/i-deal-nasty-comments-online/">Frau begegnet Hasskomentaren mit freundlichem Nachfragen <br> bit.ly/hatecomments</a>
-</div><div class="reference"><a href="http://www.huffingtonpost.com/entry/black-man-daryl-davis-befriends-kkk-documentary-accidental-courtesy_us_585c250de4b0de3a08f495fc">Schwarzer freundet sich mit Klansmen an <br> http://bit.ly/befriendKKK</a>
-</div><div class="reference"><a href="https://blog.codinghorror.com/how-to-talk-to-human-beings/">How to talk to human beings <br> Jeff Atwood - http://bit.ly/talk2humans/</a>
-</div><div class="reference"><a href="http://theoatmeal.com/comics/believe">The Oatmeal http://theoatmeal.com/comics/believe</a>
-</div></section>
+<section id="reactive"><h2>Reactive?</h2></section>
+<section id="why_isnt_async_sufficient"><h2>Why isn&#8217;t async sufficient</h2></section>
+<section><section id="what_happened_so_far"><h2>What happened so far?</h2></section><section id="before_2016"><h2>Before 2016</h2><div class="paragraph"><p>Proprietary solutions for single databases.</p></div></section><section id=""><h2>2016</h2><div class="paragraph"><p>Oracle anounces ADBA at Java One.</p></div></section><section id=""><h2>2017</h2><div class="paragraph"><p>Oracle announces ADBA at Java One.</p></div>
+<div class="paragraph"><p>Discussion on the mailing list.</p></div></section><section id="general_disappointment"><h2>General disappointment.</h2></section><section id="early_2018"><h2>Early 2018</h2><div class="paragraph"><p>Let&#8217;s do something!</p></div></section><section id=""><h2>2018</h2><div class="paragraph"><p>Pivotal announces R2DBC at Spring One.</p></div>
+<div class="paragraph"><p>With a real driver: PostgreSQL</p></div></section><section id="today"><h2>Today</h2><div class="paragraph"><p>3 Drivers</p></div>
+<div class="paragraph"><p>PostgreSQL</p></div>
+<div class="paragraph"><p>MS SQL Server</p></div>
+<div class="paragraph"><p>H2</p></div>
+<div class="paragraph"><p>There is a community effort of MySQL</p></div></section></section>
+<section id="architecture_of_r2dbc"><h2>Architecture of R2DBC</h2></section>
+<section id="demo"><h2>Demo</h2></section>
+<section id="transactions"><h2>Transactions</h2></section>
+<section id="observability"><h2>Observability</h2></section>
+<section id="block_hound"><h2>Block Hound</h2></section>
+<section id="we_want_you"><h2>We want you!</h2></section>
 <section id="jens_schauder"><h2>Jens Schauder</h2><div class="paragraph"><p>Dad, Board&amp;Roleplaying Gamer, Runner, Bouldering, Freeletics Masochist</p></div>
 <span>
 <img src="images/pivotal-spring-logo.png" style="vertical-align: middle; border:none;" width="200"/>
@@ -144,7 +140,8 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );</script><!--[if 
     
     <img src="images/jug_final_small.png" style="vertical-align: middle; border:none;" width="150"/>
     </p></div>
-<div class="paragraph"><p><a href="http://bit.ly/jsch-comm">Slides online: http://bit.ly/jsch-comm</a></p></div></section></div></div><script src="reveal.js-3.7.0/lib/js/head.min.js"></script><script src="reveal.js-3.7.0/js/reveal.js"></script><script>// See https://github.com/hakimel/reveal.js#configuration for a full list of configuration options
+<div class="paragraph"><p><a href="http://bit.ly/jsch-comm">Slides online: http://bit.ly/jsch-comm</a></p></div>
+<div class="paragraph"><p><a href="?print-pdf"><span class="small">Print as PDF</span></a></p></div></section></div></div><script src="reveal.js-3.7.0/lib/js/head.min.js"></script><script src="reveal.js-3.7.0/js/reveal.js"></script><script>// See https://github.com/hakimel/reveal.js#configuration for a full list of configuration options
 Reveal.initialize({
   // Display controls in the bottom right corner
   controls: true,
