@@ -3,10 +3,25 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>de.schauderhaft</groupId>
-    <artifactId>talk-parent-mvn</artifactId>
+    <artifactId>talk-reactive-relational-db</artifactId>
     <version>1.0.0-SNAPSHOT</version>
-    <name>Parent project for talks done by Jens Schauder</name>
-    <description>Parent project for talks done by Jens Schauder
+    <name>Slides and code for a talk about reactiv access to relational databases</name>
+    <description>
+      Das reaktive Programmiermodell verspricht bessere Skalierbarkeit als klassische (Servlet-basierte) Ansätze.
+Die ist in Zeiten, in denen man jeden CPU Zyklus einzeln bezahlt, äußerst relevant und erstrebenswert.
+
+Andererseits sind relationale Datenbanken mit SQL basierten Schnittstellen seit 30 Jahren die Arbeitstiere von Enterpriseanwendungen.
+Javas Zugriffstechnologie JDBC ist aber eine blockierende API und als solche nicht geeignet für das reaktive Programmiermodell.
+
+Seit einiger Zeit ist Bewegung in diese Konfliktsituation gekommen und unterschiedliche Gruppen arbeiten daran den Konflikt zu lösen.
+
+In diesem Vortrag werde ich vorstellen,
+
+- was reaktive Programmierung ist,
+- warum sie sich nicht mit blockierenden APIs verträgt,
+- und welche Workarounds und echte Alternativen es gibt.
+
+Dabei werden sowohl die theoretischen Konzepte vorgestellt, als auch praktische Code Beispiele gezeigt.
     </description>
 
     <properties>
