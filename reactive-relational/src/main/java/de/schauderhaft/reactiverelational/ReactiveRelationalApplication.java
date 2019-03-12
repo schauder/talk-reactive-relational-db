@@ -54,10 +54,51 @@ class Demo implements CommandLineRunner {
 				.sql("DROP TABLE IF EXISTS BRICK; " +
 						"CREATE TABLE BRICK( ID SERIAL PRIMARY KEY, NAME VARCHAR(200), HEIGHT INTEGER, WIDTH INTEGER, LENGTH INTEGER)")
 				.then()
-				.doAfterTerminate(() -> System.out.println("done"))
+				.doAfterTerminate(() -> System.out.println("create"))
 				.block();
 
-		System.out.println("done done");
+		System.out.println("done");
+
+		client.insert()
+				.into("BRICK")
+				.value("id", 1)
+				.value("name", "normal")
+				.value("height", 3)
+				.value("width", 2)
+				.value("length", 4)
+				.then()
+				.doAfterTerminate(() -> System.out.println("insert"))
+				.block();
+
+		System.out.println("done");
+
+
+		client.execute()
+				.sql("insert into brick (id, name, height, width, length) values (:id, :name, :height, :width, :length)")
+				.bind("id", 2)
+				.bind("name", "small")
+				.bind("height", 3)
+				.bind("width", 2)
+				.bind("length", 2)
+				.then()
+				.doAfterTerminate(() -> System.out.println("manual insert"))
+				.block();
+
+		client.select()
+				.from("BRICK")
+				.as(Brick.class)
+				.fetch()
+				.all()
+				.doOnNext(System.out::println)
+				.blockLast();
+
+		client.execute()
+				.sql("select name || ' (' || width || 'x' || length || ')' as value, height from brick where id = :id")
+				.bind("id", 2)
+				.fetch().all()
+				.map(m -> String.format("Brick: %s (height: %s)", m.get("value") , m.get("height")))
+				.doOnNext(System.out::println)
+				.blockLast();
 
 
 
