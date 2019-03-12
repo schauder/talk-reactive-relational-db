@@ -20,5 +20,5 @@ import org.springframework.data.repository.reactive.ReactiveCrudRepository;
 /**
  * @author Jens Schauder
  */
-public interface BrickRepository extends ReactiveCrudRepository {
+public interface BrickRepository extends ReactiveCrudRepository<Brick, Long> {
 }

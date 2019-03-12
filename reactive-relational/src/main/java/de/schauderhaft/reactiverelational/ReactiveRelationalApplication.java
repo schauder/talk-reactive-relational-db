@@ -10,11 +10,13 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.r2dbc.config.AbstractR2dbcConfiguration;
 import org.springframework.data.r2dbc.function.DatabaseClient;
+import org.springframework.data.r2dbc.repository.config.EnableR2dbcRepositories;
 import org.springframework.stereotype.Component;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @SpringBootApplication
+@EnableR2dbcRepositories
 public class ReactiveRelationalApplication {
 
 	public static void main(String[] args) {
@@ -48,13 +50,17 @@ class Demo implements CommandLineRunner {
 	@Autowired
 	DatabaseClient client;
 
+	@Autowired BrickRepository repo;
 
 	@Override
 	public void run(String... args) throws Exception {
 
 		demoDatabaseClient();
 
-
+		repo.findAll()
+				.doOnNext(System.out::println)
+				.blockLast();
+		System.out.println("done");
 	}
 
 	private void demoDatabaseClient() {
