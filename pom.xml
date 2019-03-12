@@ -27,6 +27,7 @@ Dabei werden sowohl die theoretischen Konzepte vorgestellt, als auch praktische 
 
 	<modules>
 		<module>demo</module>
+		<module>servlet</module>
 	</modules>
 
     <properties>
