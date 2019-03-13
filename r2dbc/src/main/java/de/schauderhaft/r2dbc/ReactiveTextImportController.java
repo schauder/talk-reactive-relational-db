@@ -15,17 +15,44 @@
  */
 package de.schauderhaft.r2dbc;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
+
+import java.util.concurrent.atomic.AtomicLong;
 
 /**
  * @author Jens Schauder
  */
 @RestController
 public class ReactiveTextImportController {
+
+	@Autowired
+	RowRepository rows;
+
 	@RequestMapping("/")
 	public Mono<String> index() {
 		return Mono.just("Greetings from reactive Spring Boot!");
+	}
+
+	@RequestMapping(value = "/upload", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
+	public Flux<Long> upload(@RequestBody Flux<String> content) {
+
+		AtomicLong counter = new AtomicLong();
+		return content
+				.map(l -> new Row(null, l))
+				.flatMap(r -> rows.save(r))
+				.map(Row::getId);
+	}
+
+
+	@RequestMapping(value = "/test", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
+	public String upload(@RequestBody String content) {
+
+		return content.contains("\n") ? "yes" : "nope";
 	}
 }
