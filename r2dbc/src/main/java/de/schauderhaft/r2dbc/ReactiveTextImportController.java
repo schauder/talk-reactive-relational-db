@@ -17,13 +17,13 @@ package de.schauderhaft.r2dbc;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
-
-import java.util.concurrent.atomic.AtomicLong;
 
 /**
  * @author Jens Schauder
@@ -39,20 +39,22 @@ public class ReactiveTextImportController {
 		return Mono.just("Greetings from reactive Spring Boot!");
 	}
 
-	@RequestMapping(value = "/upload", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
-	public Flux<Long> upload(@RequestBody Flux<String> content) {
+	// test with
+	// curl -X POST -H "Content-Type: text/event-stream" --data-binary @alice.txt http://localhost:8080/upload
+	@PostMapping(value = "/upload", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
+	public Flux<Object> upload(@RequestBody Flux<String> content) {
 
-		AtomicLong counter = new AtomicLong();
-		return content
-				.map(l -> new Row(null, l))
-				.flatMap(r -> rows.save(r))
+		return rows.saveAll(
+				content.map(l -> new Row(null, l)))
 				.map(Row::getId);
 	}
 
+	// test with
+	// curl http://localhost:8080/all
+	@GetMapping(value = "/all", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
+	public Flux<Row> all() {
 
-	@RequestMapping(value = "/test", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
-	public String upload(@RequestBody String content) {
-
-		return content.contains("\n") ? "yes" : "nope";
+		return rows.findAll();
 	}
+
 }
