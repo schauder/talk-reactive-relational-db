@@ -476,8 +476,12 @@ section[data-background-size] .footer span {
   box-shadow: none;
 }
 
-.reveal git .small {
+.reveal .small {
   font-size: 70%;
+}
+
+.reveal .huge {
+  font-size: 300%;
 }
 
 /*# sourceMappingURL=schauderhaft.css.map */

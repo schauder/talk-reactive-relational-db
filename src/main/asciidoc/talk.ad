@@ -10,9 +10,97 @@ include::footer.ad[]
 
 == Reactive?
 
+=== The Problem.
+
+Servlets:
+
+[.huge]#🙏 = 🧵#
+
+[NOTE.speaker]
+====
+Jeder Request wird einem Thread zugewiesen.
+
+Default pool size 200 im Tomcat.
+
+Who as 200 cores?
+
+Threads eat resources.
+====
+️
+=== Reactive Manifesto
+
+Responsive
+
+Resilient
+
+Elastic
+
+Message Driven
+
+=== Reactive Streams
+
+Event driven
+
+Non Blocking
+
+With Backpressure
+
+=== Backpressure?
+
+image::pump.jpg[background, size=contain]
+
+[NOTE.speaker]
+====
+Drainage pump for New Orleans!
+
+600.000 Liter PRO SEKUNDE!
+====
+
+=== Reactive Streams
+
+4 Interfaces
+
+7 Methods
+
+1 TCK
+
+=== Implementations
+
+RxJava 2
+
+Reactor
+
+[NOTE.speaker]
+====
+And others
+
+Don't try to implement it yourself.
+====
+
+=== !
+
+image::choose-reactive-lib.png[background, size=contain]
+
+
 == Why isn't async sufficient
 
-== What happened so far?
+=== Blocking!
+
+[NOTE.speaker]
+====
+CompleteFuture offers methods intended for regular use that return either a value immediately or wait until a value becomes available.
+This requires blocking.
+====
+
+=== Turtles all the way down
+
+```
+Future<Future<Future<Future< ... >>>>
+```
+
+== Relational Databases
+
+=== What happened so far?
 
 === Before 2016
 
@@ -30,11 +118,17 @@ Discussion on the mailing list.
 
 === General disappointment.
 
-=== Early 2018
+No interest in supporting reactive streams.
 
-Let's do something!
+[NOTE.speaker]
+====
+Argument: Reactive Streams is only usable with third party library (true)
+API must not depend on such a thing.
+====
 
 === 2018
+
+Let's do something!
 
 Pivotal announces R2DBC at Spring One.
 
@@ -52,20 +146,58 @@ H2
 
 There is a community effort of MySQL
 
+Active support by the community
+
 == Architecture of R2DBC
+
+=== r2dbc-spi
+
+Drivers implement this.
+
+=== Drivers
+
+`r2dbc-postgres`
+
+`r2dbc-h2`
+
+`r2dbc-mssql`
+
+=== r2dbc-client
+
+A simple client for end users.
+
+=== spring-data-r2dbc
+
+Better client.
+
+a reactive repository abstraction.
+
+=== r2dbc-proxy
+
+Driver proxy.
 
 == Demo
 
-== Transactions
+== What else?
 
-Is getting implemented right now!
+=== Connection Pool.
 
-== Observability
+Work in progress.
 
-r2dbc-proxy
+=== Transactions.
 
-== Block Hound
+We are working on it
 
-== We want you!
+=== Block Hound.
+
+https://github.com/reactor/BlockHound
+
+=== We want you!
+
+https://r2dbc.io/
+
+https://www.reactive-streams.org/
+
+
 
 include::self.ad[]
