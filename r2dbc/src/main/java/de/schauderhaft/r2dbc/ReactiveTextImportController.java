@@ -25,6 +25,9 @@ import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+import java.time.Duration;
+import java.time.temporal.ChronoUnit;
+
 /**
  * @author Jens Schauder
  */
@@ -41,8 +44,8 @@ public class ReactiveTextImportController {
 
 	// test with
 	// curl -X POST -H "Content-Type: text/event-stream" --data-binary @alice.txt http://localhost:8080/upload
-	@PostMapping(value = "/upload", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
-	public Flux<Object> upload(@RequestBody Flux<String> content) {
+	@PostMapping(produces = MediaType.TEXT_EVENT_STREAM_VALUE)
+	public Flux<Long> upload(@RequestBody Flux<String> content) {
 
 		return rows.saveAll(
 				content.map(l -> new Row(null, l)))
@@ -56,5 +59,4 @@ public class ReactiveTextImportController {
 
 		return rows.findAll();
 	}
-
 }
