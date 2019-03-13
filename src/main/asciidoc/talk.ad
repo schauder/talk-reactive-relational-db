@@ -20,7 +20,7 @@ Proprietary solutions for single databases.
 
 === 2016
 
-Oracle anounces ADBA at Java One.
+Oracle announces ADBA at Java One.
 
 === 2017
 
@@ -58,7 +58,11 @@ There is a community effort of MySQL
 
 == Transactions
 
+Is getting implemented right now!
+
 == Observability
+
+r2dbc-proxy
 
 == Block Hound
 

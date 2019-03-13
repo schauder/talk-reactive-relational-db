@@ -35,6 +35,11 @@
 			<version>1.0.0.M7</version>
 		</dependency>
 		<dependency>
+			<groupId>io.r2dbc</groupId>
+			<artifactId>r2dbc-proxy</artifactId>
+			<version>1.0.0.M7</version>
+		</dependency>
+		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 			<version>1.18.4</version>

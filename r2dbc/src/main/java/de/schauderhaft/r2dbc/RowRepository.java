@@ -16,9 +16,14 @@
 package de.schauderhaft.r2dbc;
 
 import org.springframework.data.r2dbc.repository.R2dbcRepository;
+import org.springframework.data.r2dbc.repository.query.Query;
+import reactor.core.publisher.Flux;
 
 /**
  * @author Jens Schauder
  */
 public interface RowRepository extends R2dbcRepository<Row, Long> {
+
+	@Query("select id, content from row where content like '%Alice%'")
+	Flux<Row> whereIsAlice();
 }

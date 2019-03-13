@@ -24,9 +24,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Arrays;
-import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
 
 /**
@@ -51,7 +49,7 @@ public class TextImportController {
 		return StreamSupport.stream(
 				rows.saveAll(
 						Arrays.stream(
-						content.split("\n"))
+								content.split("\n"))
 								.map(l -> new Row(null, l))
 								.collect(Collectors.toList())).spliterator(), false
 		)

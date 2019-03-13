@@ -25,9 +25,6 @@ import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
-import java.time.Duration;
-import java.time.temporal.ChronoUnit;
-
 /**
  * @author Jens Schauder
  */
@@ -57,6 +54,6 @@ public class ReactiveTextImportController {
 	@GetMapping(value = "/all", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
 	public Flux<Row> all() {
 
-		return rows.findAll();
+		return rows.whereIsAlice();
 	}
 }
