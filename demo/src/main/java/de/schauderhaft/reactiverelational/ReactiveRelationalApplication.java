@@ -50,7 +50,8 @@ class Demo implements CommandLineRunner {
 	@Autowired
 	DatabaseClient client;
 
-	@Autowired BrickRepository repo;
+	@Autowired
+	BrickRepository repo;
 
 	@Override
 	public void run(String... args) throws Exception {

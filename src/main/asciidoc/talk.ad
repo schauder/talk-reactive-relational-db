@@ -14,7 +14,7 @@ include::footer.ad[]
 
 Servlets:
 
-[.huge]#🙏 = 🧵#
+[.huge]#🙏 = 🧵️#
 
 [NOTE.speaker]
 ====
@@ -26,7 +26,7 @@ Who as 200 cores?
 
 Threads eat resources.
 ====
-️
+
 === Reactive Manifesto
 
 Responsive
@@ -193,6 +193,8 @@ We are working on it
 https://github.com/reactor/BlockHound
 
 === We want you!
+
+=== Ressources
 
 https://r2dbc.io/
 
