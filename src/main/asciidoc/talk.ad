@@ -1,7 +1,7 @@
 = Reactive access to Relational Databases
 :icons: font
 :twitter-tag: @jensschauder
-:conference-tag: #javaland
+:conference-tag: @JavaLandConf
 :talk-tag: #r2dbc
 :slide-link: http://bit.ly/talk-r2dbc
 :linkattrs:
